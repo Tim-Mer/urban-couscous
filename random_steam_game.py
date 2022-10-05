@@ -1,4 +1,19 @@
 #!/usr/bin/python3
+
+# ==============================================================
+# Author: Tim-Mer (https://github.com/Tim-Mer)
+# ==============================================================
+# Inputs: --api-key-file  Path to text file with your steam api key
+#                        (If not passed you will be asked to input during runtime)
+#         --api-key       Your steam api key
+#                        (If not passed you will be asked to input during runtime)
+#         --steam-id      The steamID you wish to look up a random game for
+#         --steam-id-json Parse a pre-downloaded steamID json file')
+#         --time-played   Search for game with less than this time played
+#                        (In minutes)
+#         --steam-db      List of appids with names
+# ==============================================================
+
 import argparse
 from math import inf
 from os import chown

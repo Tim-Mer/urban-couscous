@@ -3,7 +3,7 @@
 This was written mostly to see how to use the steam web API but feel free to use/learn from
 
 ## How to use
-Requirements: Linux(Any)(I use wsl), Python3, python3-venv
+Requirements: Linux(Any)(I use wsl), Python3, python3-venv (Optional if you know what you're doing)
 
 To run normally
 

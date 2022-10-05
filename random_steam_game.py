@@ -44,7 +44,7 @@ def main(api_key, steam_id, steam_id_json, steam_db, time_played):
     if chosen_game_name == 0:
         print("ERROR: Something went wrong and it could not find a game for appid: " + str(chosen_game))
         print("You could try rerunning the script or debug this yourself ;)")
-        print("Or look it up here: https://steamdb.info/apps/")
+        print("Or look it up here: https://steamdb.info/app/" + str(chosen_game))
     else:
         print("RESULT: " + chosen_game_name)
 
@@ -75,4 +75,10 @@ if bool(args.time_played):
     time_played=args.time_played
 else:
     time_played=inf
+    
+print("---------------------------------------")
+print("Welcome to the steam random game picker")
+print("Lets find you a game to play")
+print("---------------------------------------")
 main(api_key, args.steam_id, args.steam_id_json, args.steam_db, time_played)
+print("---------------------------------------")

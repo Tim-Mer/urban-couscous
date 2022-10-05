@@ -54,6 +54,9 @@ if [[ ! -e venv ]]; then
     fi
 else
     source ${VENV_NAME}/bin/activate
+    if [[ $@ =~ "DEBUG" ]]; then
+        python3 -m pip install debugpy
+    fi
 fi
 if [[ ! -e ${STEAM_DB} ]]; then
     echo "INFO: Downloading the steam appid list"

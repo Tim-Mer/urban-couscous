@@ -49,15 +49,14 @@ if [[ ! -e venv ]]; then
     python3 -m venv ${VENV_NAME}
     source ${VENV_NAME}/bin/activate
     python3 -m pip install -r requirements.txt
-    if [[ $@ =~ "DEBUG" ]]; then
-        python3 -m pip install debugpy
-    fi
 else
     source ${VENV_NAME}/bin/activate
-    if [[ $@ =~ "DEBUG" ]]; then
-        python3 -m pip install debugpy
-    fi
 fi
+
+if [[ $@ =~ "DEBUG" ]]; then
+    python3 -m pip install debugpy
+fi
+
 if [[ ! -e ${STEAM_DB} ]]; then
     echo "INFO: Downloading the steam appid list"
     wget https://api.steampowered.com/ISteamApps/GetAppList/v2/ -O ${STEAM_DB}

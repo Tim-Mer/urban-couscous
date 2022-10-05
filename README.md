@@ -1,5 +1,7 @@
 # Random Steam Game Picker
 
+Picks a random game from the steam user ID provided 
+
 This was written mostly to see how to use the steam web API but feel free to use/learn from
 
 ## How to use

@@ -39,14 +39,18 @@ def main(api_key, steam_id, steam_id_json, steam_db, time_played):
             game_no=random.randint(0, num_games-1)
             if json_data['response']['games'][game_no]['playtime_forever'] <= time_played:
                 chosen_game=json_data['response']['games'][game_no]['appid']
-    
+    chosen_game_name=0
     with open(steam_db, 'r') as steam_db_json:
         steam_db_data=json.load(steam_db_json)
         for appids in steam_db_data['applist']['apps']: 
             if appids['appid'] == chosen_game:
                 chosen_game_name=appids['name']
-    
-    print("RESULT: " + chosen_game_name)
+    if chosen_game_name == 0:
+        print("ERROR: Something went wrong and it could not find a game for appid: " + str(chosen_game))
+        print("You could try rerunning the script or debug this yourself ;)")
+        print("Or look it up here: https://steamdb.info/apps/")
+    else:
+        print("RESULT: " + chosen_game_name)
 
 parser = argparse.ArgumentParser(description='This picks a random steam game that you own from you library and displays it (Try running via `source run.sh`)')
 parser.add_argument('--api-key-file', required=False,

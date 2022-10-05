@@ -6,6 +6,7 @@
 # Inputs: JSON (Uses the first *_games.json file it finds,
 #               avoiding redownloading the file multiple times)
 #         DEBUG (Useful for debugging the script in VSCode)
+#         HIDE  Don't display sensitive info to terminal
 # ==============================================================
 
 API_KEY_TXT=steam_api_key.txt
@@ -59,6 +60,8 @@ if [[ ! -e ${STEAM_DB} ]]; then
     wget https://api.steampowered.com/ISteamApps/GetAppList/v2/ -O ${STEAM_DB}
 fi
 CMD="python3 ${DEBUG_LINE} ${PY_SCRIPT} --steam-db ${STEAM_DB} --api-key-file ${API_KEY_TXT} --steam-id `cat ${STEAM_ID_TXT}` ${JSON_FILE}"
-echo "INFO: Running ${CMD}"
+if [[ ! $@ =~ HIDE ]]; then
+    echo "INFO: Running ${CMD}"
+fi
 ${CMD}
 deactivate

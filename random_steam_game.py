@@ -22,8 +22,6 @@ import json
 import random
 
 def main(api_key, steam_id, steam_id_json, steam_db, time_played):
-    print("API KEY: " + api_key)
-    print("Steam ID: " + steam_id)
     chosen_game=0
     if not bool(steam_id_json):
         URL="https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" + api_key + "&steamid=" + steam_id + "&format=json"
@@ -68,7 +66,6 @@ parser.add_argument('--steam-db', required=True,
 
 args = parser.parse_args()
 if bool(args.api_key_file):
-    print(args.api_key_file)
     with open(args.api_key_file, "r") as key_file:
         api_key=key_file.readline().replace("\n", "")
 elif bool(args.api_key):

@@ -4,9 +4,7 @@
 # Author: Tim-Mer (https://github.com/Tim-Mer)
 # ==============================================================
 # Inputs: --api-key-file  Path to text file with your steam api key
-#                        (If not passed you will be asked to input during runtime)
 #         --api-key       Your steam api key
-#                        (If not passed you will be asked to input during runtime)
 #         --steam-id      The steamID you wish to look up a random game for
 #         --steam-id-json Parse a pre-downloaded steamID json file')
 #         --time-played   Search for game with less than this time played
@@ -54,9 +52,9 @@ def main(api_key, steam_id, steam_id_json, steam_db, time_played):
 
 parser = argparse.ArgumentParser(description='This picks a random steam game that you own from you library and displays it (Try running via `source run.sh`)')
 parser.add_argument('--api-key-file', required=False,
-                    help='Path to text file with your steam api key (If not passed you will be asked to input during runtime)')
+                    help='Path to text file with your steam api key')
 parser.add_argument('--api-key', required=False,
-                    help='Your steam api key (If not passed you will be asked to input during runtime)')
+                    help='Your steam api key')
 parser.add_argument('--steam-id', required=True,
                     help='The steamID you wish to look up a random game for')
 parser.add_argument('--steam-id-json', required=False,

@@ -9,19 +9,23 @@ Requirements: Linux(Any)(I use wsl), Python3, python3-venv (Optional if you know
 
 To run normally
 
-$ source ./run.sh
+$ ./run.sh
 
 To run using previously acquired user_games.json
 
-$ source ./run.sh JSON
+$ ./run.sh JSON
 
 To run hiding sensitive info
 
-$ source ./run.sh HIDE
+$ ./run.sh HIDE
 
 To run using VSCode debug
 
-$ source ./run.sh DEBUG
+$ ./run.sh DEBUG
+
+To run only searching for games with less than 60 minutes of playtime
+
+$ ./run.sh TIME_PLAYED
 
 You can also look into the run.sh script to see how to run manually and can get help using the following:
 

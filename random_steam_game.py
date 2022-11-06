@@ -57,7 +57,7 @@ parser.add_argument('--steam-id', required=True,
                     help='The steamID you wish to look up a random game for')
 parser.add_argument('--steam-id-json', required=False,
                     help='Parse a pre-downloaded steamID json file')
-parser.add_argument('--time-played', required=False,
+parser.add_argument('--time-played', required=False, type=int,
                     help='Search for game with less than this time played (In minutes)')
 parser.add_argument('--steam-db', required=True,
                     help='List of appids with names')

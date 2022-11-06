@@ -27,6 +27,12 @@ else
     JSON_FILE=""
 fi
 
+if [[ $@ =~ "TIME_PLAYED" ]]; then
+    TIME_PLAYED="--time-played 60"
+else
+    TIME_PLAYED=""
+fi
+
 if [[ ! -e ${API_KEY_TXT} ]]; then
     echo "INFO: This flow requires a ${API_KEY_TXT} file, lets generate it"
     echo "INFO: You can get an api key here: https://steamcommunity.com/dev "
@@ -61,7 +67,7 @@ if [[ ! -e ${STEAM_DB} ]]; then
     echo "INFO: Downloading the steam appid list"
     wget https://api.steampowered.com/ISteamApps/GetAppList/v2/ -O ${STEAM_DB}
 fi
-CMD="python3 ${DEBUG_LINE} ${PY_SCRIPT} --steam-db ${STEAM_DB} --api-key-file ${API_KEY_TXT} --steam-id `cat ${STEAM_ID_TXT}` ${JSON_FILE}"
+CMD="python3 ${DEBUG_LINE} ${PY_SCRIPT} --steam-db ${STEAM_DB} --api-key-file ${API_KEY_TXT} --steam-id `cat ${STEAM_ID_TXT}` ${JSON_FILE} ${TIME_PLAYED}"
 if [[ ! $@ =~ HIDE ]]; then
     echo "INFO: Running ${CMD}"
 fi
